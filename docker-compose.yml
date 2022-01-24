@@ -1,0 +1,28 @@
+version: '3'
+services:
+  setup:
+    build: ./datafetcher
+    command: pip install -r requirements.txt
+    volumes:
+      - ./datafetcher:/root/datafetcher:cached
+      - ./data:/root/data:cached
+
+  datafetcher:
+    build: ./datafetcher
+    command: uvicorn app:app --reload
+    environment:
+      - SERVICE_NAME=datafetcher
+      - PORT=4000
+    ports:
+      - "4000:4000"
+    working_dir: /root/datafetcher
+    depends_on:
+      - setup
+    volumes:
+      - ./datafetcher:/root/datafetcher:cached
+      - ./data:/root/data:cached
+
+
+volumes:
+  datafetcher:
+  data:
