@@ -1,6 +1,7 @@
+black
+colorama
 fastapi
+pytest
+requests
 uvicorn
 watchgod
-colorama
-pytest
-black
