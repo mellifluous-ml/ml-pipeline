@@ -1,0 +1,4 @@
+data/getSeries.json:Zone.Identifier filter=lfs diff=lfs merge=lfs -text
+data/links.txt filter=lfs diff=lfs merge=lfs -text
+data/series.json filter=lfs diff=lfs merge=lfs -text
+data/getSeries.json filter=lfs diff=lfs merge=lfs -text
