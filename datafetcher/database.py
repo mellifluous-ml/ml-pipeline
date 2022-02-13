@@ -12,7 +12,7 @@ class SeriesDocument(Document):
     series_instance_uid = fields.StringField(required=True)
     study_instance_uid = fields.StringField(required=True)
     modality = fields.StringField(required=True)
-    series_date = fields.StringField(required=True)
+    series_date = fields.StringField(required=False)
     series_description = fields.StringField(required=True)
     body_part_examined = fields.StringField(required=True)
     series_number = fields.StringField(required=True)
@@ -26,6 +26,8 @@ class SeriesDocument(Document):
 
     class Meta:
         collection_name = "image_series"
+
+
 
 
 SeriesDocument.ensure_indexes()

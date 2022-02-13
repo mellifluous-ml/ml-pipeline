@@ -42,9 +42,13 @@ def list_body_parts():
 def list_series():
     with requests.get(f"{base_url}/getSeries", stream=True) as response:
         series_metadata = response.json()
-    json.dump(series_metadata, Path("streamed_series.json").open("w"))
+
+    # json.dump(series_metadata, Path("streamed_series.json").open("w"))
     series = [SeriesMetadata(**entry) for entry in series_metadata]
-    series_docs = [SeriesDocument(entry.dict()) for entry in series]
+    return repr(series[0])
+
+    # breakpoint()
+    # series_docs = [SeriesDocument(**entry.dict()) for entry in series]
     return series_metadata
 
 
